@@ -281,4 +281,25 @@ Table marked as official Date Table in Power BI to enable time intelligence func
 
 ---
 
-## Project Structure
+---
+
+## Author
+
+| Field | Detail |
+|-------|--------|
+| Role | IT Department Intern |
+| Mentor | Sir Muhammad Irfan |
+| Company | Crescent Textile Mills |
+
+---
+
+## Acknowledgements
+
+- Crescent Textile Mills for the internship opportunity and providing real-world payroll data.
+- Sir Muhammad Irfan for mentorship and technical guidance throughout the project.
+
+---
+
+## License
+
+MIT License — Free to use with attribution.
