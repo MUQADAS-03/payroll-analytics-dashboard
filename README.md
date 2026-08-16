@@ -11,7 +11,7 @@ Crescent Textile Mills is one of Pakistan's leading textile manufacturers operat
 
 ## Project Overview
 
-This Power BI dashboard transforms 253,010 rows of raw payroll data into actionable intelligence. Built during an AI/ML internship at ITSimplera Solutions, it provides multi-level analysis from company-wide trends down to individual employee salary history.
+This Power BI dashboard transforms 253,010 rows of raw payroll data into actionable intelligence. Built during an internship at Crestex, it provides multi-level analysis from company-wide trends down to individual employee salary history.
 
 ---
 
