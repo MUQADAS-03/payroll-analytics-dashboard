@@ -1,305 +1,214 @@
-# Payroll Analytics Dashboard
-## Crescent Textile Mills — 2021 to 2026
+<div align="center">
+
+#  Payroll Analytics Dashboard
+
+### End-to-End Power BI Dashboard for Multi-Year Employee Payroll Analysis
+
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![DAX](https://img.shields.io/badge/DAX-217346?style=flat-square&logo=microsoft&logoColor=white)
+![SQL](https://img.shields.io/badge/Oracle%20SQL-F80000?style=flat-square&logo=oracle&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)
+
+</div>
+
+
+##  Table of Contents
+
+- [Project Overview](#-project-overview)
+- [Sample Dataset](#-sample-dataset)
+- [Tools & Technologies](#-tools--technologies)
+- [Dashboard Pages](#-dashboard-pages)
+- [Analytical Approach](#-analytical-approach)
+- [Data Cleaning Steps](#-data-cleaning-steps)
+- [Data Model](#-data-model)
+- [DAX Measures](#-dax-measures)
+- [Sample Insights](#-sample-insights-illustrative)
+- [Data Quality](#-data-quality)
+- [Key Skills Demonstrated](#-key-skills-demonstrated)
+- [Author](#-author)
 
 ---
 
-## Company Overview
+##  Project Overview
 
-Crescent Textile Mills is one of Pakistan's leading textile manufacturers operating across 10 zones with 269 departments. This dashboard analyzes 5 years of employee payroll data to drive informed decision-making across HR, Finance, and Management teams.
+This project transforms a large, multi-year raw payroll dataset into an interactive, multi-level **Power BI** dashboard — from company-wide trends down to individual employee-level analysis. Built end-to-end: data cleaning in Power Query, relational data modelling, DAX measure design, and a 10-page interactive report with drill-through navigation.
 
----
-
-## Project Overview
-
-This Power BI dashboard transforms 253,010 rows of raw payroll data into actionable intelligence. Built during an internship at Crestex, it provides multi-level analysis from company-wide trends down to individual employee salary history.
-
----
-
-## Quick Facts
-
-| Metric | Value |
-|--------|-------|
-| Total Records | 253,010 rows |
-| Time Period | 2021 - 2026 |
-| Unique Employees | 11,864 |
-| Total Zones | 10 |
-| Total Departments | 269 |
-| Salary Groups | 7 |
-| Monthly Pay Periods | 65 months |
-| Total Payroll (5 years) | 8.5 Billion PKR |
+| Metric (illustrative) | Value |
+|---|---|
+| Time Period Covered | 5 years |
+| Zones Analyzed | 10 |
+| Departments Analyzed | 250+ |
+| Salary Categories | 7 |
+| Dashboard Pages | 10 |
 
 ---
 
-## Dataset Description
-
-- File: AI_PAYROLL_DATA.csv
-- Size: 13.6 MB
-- Records: 253,010 rows
-- Columns: 10
+##  Sample Dataset
 
 | Column | Type | Description |
-|--------|------|-------------|
-| SALARY_DATE | Date | Monthly payroll date |
-| ZONE | Text | Factory zone code |
-| SALARY_GROUP | Text | Employee category |
-| DEPARTMENT | Text | Department name |
-| EMPLOYEE_CODE | Text | Unique employee ID |
-| EMPLOYEE_NAME | Text | Full name |
-| GROSS_SALARY | Number | Contract salary |
-| EARNED_SALARY | Number | Actual earned amount |
-| DEDUCTIONS | Number | Tax and loan deductions |
-| NET_SALARY | Number | Final take-home pay |
+|--------|------|--------------|
+| `SALARY_DATE` | Date | Monthly payroll date |
+| `ZONE` | Text | Factory/site zone code |
+| `SALARY_GROUP` | Text | Employee category (worker, staff, executive, etc.) |
+| `DEPARTMENT` | Text | Department name |
+| `EMPLOYEE_CODE` | Text | Unique employee identifier |
+| `EMPLOYEE_NAME` | Text | Full name |
+| `GROSS_SALARY` | Number | Contract salary |
+| `EARNED_SALARY` | Number | Actual earned amount |
+| `DEDUCTIONS` | Number | Tax and loan deductions |
+| `NET_SALARY` | Number | Final take-home pay |
+
+*Sample rows below use randomly generated placeholder values — not real employee data.*
+
+| SALARY_DATE | ZONE | SALARY_GROUP | DEPARTMENT | GROSS_SALARY | DEDUCTIONS | NET_SALARY |
+|---|---|---|---|---|---|---|
+| 2025-01-01 | Zone A | Worker | Dept 1 | 38,500 | 3,200 | 35,300 |
+| 2025-01-01 | Zone B | Staff | Dept 2 | 62,000 | 5,100 | 56,900 |
+| 2025-01-01 | Zone C | Executive | Dept 3 | 210,000 | 18,400 | 191,600 |
 
 ---
 
-## Tools and Technologies
+## 🛠 Tools & Technologies
 
 | Tool | Purpose |
 |------|---------|
-| Power BI Desktop | Dashboard development |
-| Power Query M Language | Data cleaning and transformation |
-| DAX | Measures and calculations |
-| Microsoft Excel | Source data format |
-| Oracle SQL | Database management |
-| GitHub | Version control |
+| **Power BI Desktop** | Dashboard development |
+| **Power Query (M)** | Data cleaning and transformation |
+| **DAX** | Measures and calculations |
+| **Microsoft Excel** | Source data format |
+| **Oracle SQL** | Database management |
+| **GitHub** | Version control |
 
 ---
 
-## Dashboard Pages
+##  Dashboard Pages
 
-1. Executive Summary — Company-wide KPIs and trends
-2. Statistical Analysis — Mean, Standard Deviation, Variance
-3. Zone and Department Analysis — Geographic breakdown
-4. Monthly Analysis — Time-based trends
-5. Anomalies — No pay and overtime cases
-6. Employee Details — Individual drill-through
-7. Department Details — Department-level analysis
-8. Zone Summary — Zone-wise salary distribution
-9. Employee History — Employee performance tracking
-10. Department Employee Details — Team performance analysis
-
----
-
-## Quantitative Insights
-
-### Payroll Overview
-
-| Metric | Value |
-|--------|-------|
-| Total Net Salary (5 years) | 8.5 Billion PKR |
-| Total Gross Salary (5 years) | 9.8 Billion PKR |
-| Total Deductions (5 years) | 989 Million PKR |
-| Average Deduction Rate | 8 to 10 percent |
-| Average Net Salary | 33,618 PKR per month |
-| Maximum Net Salary | 764,000 PKR |
-| Minimum Net Salary | 41 PKR |
-
-### Workforce Distribution
-
-| Salary Group | Percentage |
-|-------------|------------|
-| Workers | 35.9 percent |
-| Unconsolidated Workers | 33.35 percent |
-| Staff | 16.08 percent |
-| Hattar Employees | 8.94 percent |
-| Executives | 4.34 percent |
-| Managerial | 1.39 percent |
-
-### Zone Salary Analysis
-
-| Zone | Average Net Salary |
-|------|-------------------|
-| YG Zone | 161,000 PKR |
-| MK Zone | 130,000 PKR |
-| FN Zone | 112,000 PKR |
-| SP Zone | 20,000 PKR |
-
-### Department Analysis
-
-| Department | Total Net Salary |
-|-----------|-----------------|
-| Ring U1 | 400 Million PKR |
-| Ring U6 | 330 Million PKR |
-| Back Process U1 | 300 Million PKR |
-
-### Time-based Insights
-
-| Metric | Value |
-|--------|-------|
-| Payroll Peak | 2025 — 181 Million PKR |
-| Payroll Low Month | June — 31.4 Million PKR |
-| Worst Drop | July 2023 — 58 Million PKR |
-| Year-on-Year Growth | 8 to 12 percent annually |
-
-### Anomaly Detection
-
-| Anomaly | Count |
-|---------|-------|
-| No Pay Cases | 741 records |
-| Overtime Cases | 16,049 rows |
-| Deduction Spike 2023 | 55 percent |
-| Deduction Spike 2025 | 57 percent |
-| Missing Values | 18 rows |
-
-### Statistical Analysis
-
-| Metric | Value |
-|--------|-------|
-| Mean Net Salary | 33,618 PKR |
-| Standard Deviation | 27,970 PKR |
-| Variance | 833.45 Million |
-| StdDev to Mean Ratio | 83 percent |
-| Upper Band | 61,588 PKR |
-| Lower Band | 5,648 PKR |
+1. **Executive Summary** — company-wide KPIs and trends
+2. **Statistical Analysis** — mean, standard deviation, variance
+3. **Zone & Department Analysis** — geographic/organizational breakdown
+4. **Monthly Analysis** — time-based trends
+5. **Anomalies** — no-pay and overtime cases
+6. **Employee Details** — individual drill-through
+7. **Department Details** — department-level analysis
+8. **Zone Summary** — zone-wise salary distribution
+9. **Employee History** — individual salary trend over time
+10. **Department Employee Details** — team-level performance analysis
 
 ---
 
-## Key Findings
+##  Analytical Approach
 
-### Finding 1 — High Pay Inequality
+The dashboard was designed to answer questions typically relevant to HR and Finance teams working with payroll data:
 
-Standard deviation is 83 percent of the mean salary. Daily wagers earn approximately 10,000 PKR while executives earn up to 764,000 PKR. The gap ratio is 76 times between minimum and maximum salary. Salary bands per grade should be defined to address this inequality.
-
-### Finding 2 — Ring U1 Overtime Crisis
-
-Ring U1 has the highest payroll cost at 400 Million PKR and the highest overtime cost at 1.3 Million PKR. This dual pressure indicates understaffing, excessive production pressure, and potential employee burnout risk. A headcount review for Ring U1 is recommended.
-
-### Finding 3 — 2023 Payroll Anomaly
-
-Payroll dropped from 148 Million to 58 Million in July 2023, a 60 percent sudden decline. Possible causes include mass no-pay leaves, major retrenchment, or a system data entry error. HR and Finance teams should investigate this period.
-
-### Finding 4 — Zone Pay Gap
-
-YG Zone average salary is 161,000 PKR while SP Zone average is 20,000 PKR, representing an 8 times difference between zones. A pay equity audit is needed to ensure fair compensation across all zones.
-
-### Finding 5 — Deduction Spikes
-
-Normal deduction rate is 8 to 10 percent. Spikes of 55 percent in 2023 and 57 percent in 2025 are abnormal. Possible causes include bulk loan recoveries, policy changes, or audit-related deductions. Finance team investigation is required.
-
-### Finding 6 — 741 No Pay Cases
-
-741 employees received zero salary in at least one month. This pattern may indicate unauthorized absences, resignation processes, or disciplinary actions. HR follow-up is required for all identified cases.
+- How does average pay vary across zones, departments, and employee categories?
+- Are there statistically significant outliers in salary or deduction patterns?
+- What do month-over-month and year-over-year payroll trends look like?
+- Which departments show unusually high overtime or payroll cost?
+- Are there missing-pay or zero-salary records that need HR follow-up?
+- How consistent are deduction rates over time, and are there unexplained spikes?
 
 ---
 
-## Recommendations
+##  Data Cleaning Steps
 
-### For Finance Team
-
-1. Investigate the 2023 and 2025 deduction spikes immediately.
-2. Set an automated alert when deduction rate exceeds 15 percent.
-3. Monitor monthly payroll against the 134 Million PKR baseline average.
-4. Use the 8 to 12 percent annual growth trend for next year budget forecasting.
-
-### For HR Team
-
-1. Review all 741 no-pay employee cases and document reasons.
-2. Conduct a pay equity audit across all 10 zones.
-3. Define salary bands per grade to reduce the 83 percent standard deviation inequality.
-4. Investigate Ring U1 overtime and consider additional hiring.
-5. Track monthly headcount changes to identify attrition signals early.
-
-### For Management and CEO
-
-1. Ring U1 cost review is needed as it leads in both salary and overtime costs.
-2. YG and MK zones justify higher pay due to skilled workforce — maintain current levels.
-3. SP Zone low salary may increase attrition risk — review compensation structure.
-4. The 5-year upward trend confirms payroll budget should grow 10 percent annually.
-5. June consistently shows the lowest payroll — plan for seasonal operational dips.
+1. Corrected column data types (dates formatted, IDs set to text).
+2. Trimmed inconsistent text values (extra spaces in department names).
+3. Handled null/missing values appropriately per column.
+4. Removed blank and duplicate rows.
+5. Added calculated columns:
+   - `PAYMENT_STATUS` — flags zero-salary records
+   - `OVERTIME_BONUS` — captures earned salary exceeding gross salary
+   - `DEDUCTION_PERCENT` — tracks deduction proportion
+   - `YEAR` / `MONTH_NAME` — enables time-based analysis
 
 ---
 
-## Data Quality Report
+##  Data Model
 
-| Metric | Value |
-|--------|-------|
-| Total Records | 253,010 |
-| Duplicate Rows | 0 |
-| Negative Salaries | 0 |
-| Formula Verified | NET equals EARNED minus DEDUCTIONS |
-| Missing Values | 18 rows (0.007 percent) |
-| Data Completeness | 99.993 percent |
-| Date Range | January 2021 to May 2026 |
+- Built a dedicated **Date table** using DAX's `CALENDAR()` function, marked as the official Date Table to enable time-intelligence functions.
+- Established relationships between the payroll fact table and supporting dimension tables (zone, department, employee category).
 
----
-
-## Data Cleaning Steps
-
-1. SALARY_DATE column type changed to Date format.
-2. EMPLOYEE_CODE changed to Text type as it is an identifier not a numeric value.
-3. DEPARTMENT names trimmed to remove extra spaces.
-4. Null DEDUCTIONS values replaced with zero.
-5. Blank rows removed from dataset.
-6. Calculated columns added:
-   - PAYMENT_STATUS — identifies zero salary employees
-   - OVERTIME_BONUS — captures earned salary exceeding gross salary
-   - DEDUCTION_PERCENT — tracks deduction proportion
-   - YEAR and MONTH_NAME — enables time-based analysis
+```
+Date Table ──┐
+             ├──< Payroll Fact Table >── Zone Dimension
+Employee ────┘                       └── Department Dimension
+```
 
 ---
 
-## Date Table
+## 📐 DAX Measures
 
-Created using DAX CALENDAR function covering January 2021 to May 2026 with the following columns:
+<details>
+<summary><b>Financial Measures</b></summary>
 
-- Date
-- Year
-- Month
-- MonthNum — used for Jan to Dec sorting
-
-Table marked as official Date Table in Power BI to enable time intelligence functions.
-
----
-
-## DAX Measures
-
-### Financial Measures
 - Total Net Salary
 - Total Gross Salary
 - Total Deductions
 - Average Net Salary
-- Deduction Rate Percent
+- Deduction Rate (%)
 - Total Overtime
-- YoY Growth Percent
+- Year-over-Year Growth (%)
+</details>
 
-### Statistical Measures
-- Mean Net Salary
-- Standard Deviation Net Salary
-- Variance Net Salary
-- Max Net Salary
-- Min Net Salary excluding zero
-- Upper Band
-- Lower Band
-- Upper Outliers
-- Lower Outliers
+<details>
+<summary><b>Statistical Measures</b></summary>
 
-### Operational Measures
+- Mean, Standard Deviation, Variance
+- Max / Min Net Salary
+- Upper / Lower Bands (outlier detection)
+- Upper / Lower Outlier counts
+</details>
+
+<details>
+<summary><b>Operational Measures</b></summary>
+
 - Total Employees
-- No Pay Count
-- Monthly Total Net
+- No-Pay Count
+- Monthly Total Net Salary
 - Overall Average Line
+</details>
 
 ---
+
+##  Sample Insights 
+
+> The examples below use placeholder numbers to demonstrate the type of insight the dashboard surfaces — not the original project's real findings.
+
+- **Pay spread:** Standard deviation was a large share of mean salary, pointing to a wide pay range across grades — a signal for reviewing salary-band consistency.
+- **Overtime hotspots:** A small number of departments accounted for a disproportionate share of overtime cost — useful for headcount planning conversations.
+- **Seasonal dips:** Certain months consistently showed lower payroll totals, useful for budget forecasting.
+- **Zone pay gaps:** Meaningful average-salary differences existed across zones, flagged for a pay-equity review.
+
+---
+
+##  Data Quality
+
+- Verified core formula integrity (`Net = Earned − Deductions`) across the dataset.
+- Checked for duplicate rows, negative salary values, and missing data.
+- Documented overall data completeness as part of the QA process.
+
+---
+
+##  Key Skills Demonstrated
+
+- End-to-end BI workflow: raw data → cleaning → modelling → DAX → multi-page dashboard
+- Statistical analysis within a BI tool (mean, standard deviation, outlier banding)
+- Time-intelligence modelling using a dedicated date table
+- Anomaly detection logic (no-pay cases, deduction spikes, overtime outliers)
+- Multi-level drill-through design (company → zone → department → employee)
+- Working with large, real-world, imperfect datasets
 
 ---
 
 ## Author
 
-| Field | Detail |
-|-------|--------|
-| Role | IT Department Intern |
-| Mentor | Sir Muhammad Irfan |
-| Company | Crescent Textile Mills |
+**Muqadas Yasin**
+Business Data Analytics Student — COMSATS University Islamabad
+
+*Built during an IT Department internship, with mentorship and technical guidance from my industry supervisors.*
 
 ---
 
-## Acknowledgements
+## 📄 License
 
-- Crescent Textile Mills for the internship opportunity and providing real-world payroll data.
-- Sir Muhammad Irfan for mentorship and technical guidance throughout the project.
-
----
-
-## License
-
-MIT License — Free to use with attribution.
+MIT License — free to use with attribution. 
